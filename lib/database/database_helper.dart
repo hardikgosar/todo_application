@@ -26,11 +26,11 @@ class DatabaseHelper {
   Future<Database> _initDb() async {
     Directory dir = await getApplicationDocumentsDirectory();
     String path = dir.path + 'task_list.db';
-    print('print $path');
+    
     final taskListDb =
         await openDatabase(path, version: 1, onCreate: _createDb);
     return taskListDb;
-    print('tasklist = $taskListDb');
+
   }
 
   void _createDb(Database db, int version) async {
@@ -65,7 +65,7 @@ class DatabaseHelper {
   }
 
   Future<int> insertTask(Task task) async {
-    print('insert method called');
+
     Database? db = await this.db;
     final int result = await db!.insert(taskTable, task.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
@@ -74,7 +74,7 @@ class DatabaseHelper {
 
   Future<int> updateTask(Task task) async {
     Database? db = await this.db;
-    print('update method called');
+   
     final int result = await db!.update(taskTable, task.toMap(),
         where: '$colId = ?', whereArgs: [task.id]);
     return result;

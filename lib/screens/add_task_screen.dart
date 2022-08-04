@@ -7,7 +7,7 @@ import '../model/task_model.dart';
 class AddTaskScreen extends StatefulWidget {
   final Task? task;
   final Function? updateTaskList;
-  AddTaskScreen({this.task, this.updateTaskList, Key? key}) : super(key: key);
+  const AddTaskScreen({this.task, this.updateTaskList, Key? key}) : super(key: key);
 
   @override
   State<AddTaskScreen> createState() => _AddTaskScreenState();
@@ -16,7 +16,7 @@ class AddTaskScreen extends StatefulWidget {
 class _AddTaskScreenState extends State<AddTaskScreen> {
   final _formKey = GlobalKey<FormState>();
   late String _titleText;
-  var _prioities = ["High", "Medium", "Low"];
+  final  _prioities = ["High", "Medium", "Low"];
 
   late bool _isEditMode;
 
@@ -80,7 +80,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       setState(() {
         _title = _titleController.text;
         _description = _descriptionController.text;
-        print('$_description');
+       
       });
 
       Task task = Task(

@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late String date;
 
   _updateTaskList() {
-    print('update method called');
     _taskList = _databaseHelper.getTaskList();
   }
 
@@ -119,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => AddTaskScreen()));
+                    MaterialPageRoute(builder: (_) => const AddTaskScreen()));
               },
               icon: const Icon(
                 Icons.add,
